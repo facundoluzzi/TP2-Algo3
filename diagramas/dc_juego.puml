@@ -1,0 +1,72 @@
+@startuml
+
+
+
+class Juego {
+
+}
+
+class Tablero {
+
+}
+
+class Batalla {
+
+}
+
+class TarjetaPais{
+
+}
+class Turno {
+
+}
+
+class Dados{
+
+}
+
+class Jugador{
+
+}
+class Pais{
+
+}
+abstract EstadoBelico{
+
+}
+
+class PaisEnPaz extends EstadoBelico{
+
+}
+class PaisEnBatalla extends EstadoBelico{
+
+}
+
+interface Fase{
+
+}
+class EstadoPais{
+
+}
+
+
+
+Juego *-> Tablero
+Juego *-left-> Batalla
+Juego *-left-> Fase
+Juego *--> Turno
+
+Juego o-->"2...n" Jugador
+Batalla o->"2" Jugador
+Jugador *--> EstadoPais
+EstadoPais o--> "0...50" Pais
+Pais *--> EstadoBelico
+Jugador o--> "0...n" TarjetaPais
+Batalla -.-> Dados
+Tablero *-> TarjetaPais
+Tablero -.-> Jugador
+Tablero *-> Pais
+
+
+
+@enduml
